@@ -1,8 +1,11 @@
 # mysql-todolist
 ## 开始
-入门小项目
+入门小项目,简单熟悉摸下windows端git bush
+\<br> 
+\<br> 
 ## 感谢学习项目
 * [Molunerfinn/vue-koa-demo](https://github.com/Molunerfinn/vue-koa-demo)
+* [如何使用koa2+es6/7打造高质量Restful API](http://sinn.boyagirl.com/detail/58d9072cc1a5bd0001672cdc)
 ## 简单修改
 > 因为，class+async/await的结合，可以使你更好的组织api的逻辑层，语义更清晰，结构更清晰，代码量更少更轻，更容易维护。至此，你不再需要export每个接口逻辑了。另一个优点，它同样具有很好的性能。
 ```javascript
