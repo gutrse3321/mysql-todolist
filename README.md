@@ -74,6 +74,20 @@ router
 
 module.exports = router
 ```
+## 表结构
+#### 用户表
+| 字段        | 类型    |  说明  |
+| --------   | -----:   | :----: |
+| ID        | int           |  主键，自增           |
+| UserName  | char(50)      |   用户名             |
+| Password  | char(128)     |   密码，存加密后的    |
+#### 事项表
+| 字段        | 类型    |  说明  |
+| --------   | -----:   | :----: |
+| ID        | int      |  主键，自增   |
+| UserID    | int      |   用户ID      |
+| content  | char(255) |   事项内容    |
+| status  | tinyint    |   事项状态    |
 ## Build Setup
 
 ``` bash
