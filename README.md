@@ -1,25 +1,87 @@
 # mysql-todolist
-<<<<<<< HEAD
+## 开始
+入门小项目
+## 感谢学习项目
+* [Molunerfinn/vue-koa-demo](https://github.com/Molunerfinn/vue-koa-demo)
+## 简单修改
+> 因为，class+async/await的结合，可以使你更好的组织api的逻辑层，语义更清晰，结构更清晰，代码量更少更轻，更容易维护。至此，你不再需要export每个接口逻辑了。另一个优点，它同样具有很好的性能。
+```javascript
+// ./server/controllers/todolist.js
 
-> A Vue.js project
+const todolist = require('../models/todolist')
 
+class TodoListController {
+  static async getTodolist(ctx) {
+    // 从url里获取参数
+    const id = ctx.params.id
+    const result = await todolist.getTodolistById(id)
+    ctx.body = {
+      success: true,
+      result
+    }
+  }
+  
+  static async createTodolist(ctx) {
+    const data = ctx.request.body
+    const success = await todolist.createTodolist(data)
+    ctx.body = {
+      success
+    }
+  }
+  
+  static async removeTodolist(ctx) {
+    const ID = ctx.params.id
+    const UserID = ctx.params.userId
+    console.log(ID + ' ' + UserID)
+    const result = await todolist.removeTodolist(ID, UserID)
+  
+    ctx.body = {
+      success: true
+    }
+  }
+  
+  static async updateTodolist(ctx) {
+    const ID = ctx.params.id
+    const UserID = ctx.params.userId
+    let status = ctx.params.status
+    // 状态更新
+    status === '0' ? status = true : status = false
+  
+    const result = await todolist.updateTodolist(ID, UserID, status)
+  
+    ctx.body = {
+      success: true
+    }
+  }
+}
+
+module.exports = TodoListController
+```
+```javascript
+// ./server/routes/api.js
+
+// api 接口层
+const todolist = require('../controllers/todolist')
+const Router = require('koa-router')
+const router = Router()
+
+router
+  .get('/todolist/:id', todolist.getTodolist)
+  .post('/todolist', todolist.createTodolist)
+  .delete('/todolist/:userId/:id', todolist.removeTodolist)
+  .put('/todolist/:userId/:id/:status', todolist.updateTodolist)
+
+module.exports = router
+```
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
+# install
+yarn
 
-# serve with hot reload at localhost:8080
-npm run dev
+# At localhost:8080
+yarn run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# server used
+node server
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-=======
-Used Vue2 and Koa2,DB->Mysql。使用的vue和koa做的简单todolist，数据库时mysql
->>>>>>> 0b2cdbbebae0bd07545efbf193f902920d8b15ba
