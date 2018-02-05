@@ -1,6 +1,6 @@
 # mysql-todolist
 ## 开始
-入门小项目,简单熟悉摸下windows端git bush
+入门小项目
 ## 感谢学习项目
 * [Molunerfinn/vue-koa-demo](https://github.com/Molunerfinn/vue-koa-demo)
 * [如何使用koa2+es6/7打造高质量Restful API](http://sinn.boyagirl.com/detail/58d9072cc1a5bd0001672cdc)
